@@ -1,0 +1,42 @@
+//Creating Table
+CREATE TABLE IF NOT EXISTS emp
+(
+name string,
+skill string,
+rating int,
+location string
+)
+row format delimited
+fields terminated by ',';
+
+
+//Loading Data into the table
+LOAD DATA LOCAL 
+INPATH '/home/acadgild/Hive/emp_details.txt'
+INTO TABLE emp;
+
+
+//Q
+1Calculate the number of employees corresponding to each skill from the table 'employee' which is
+loaded in the Demo.
+
+//Hive query
+hive> SELECT skill, COUNT(name) FROM emp
+
+hive> GROUP BY skill;
+
+
+//output
+ASP	1
+
+Big Data	2
+
+C#	1
+
+DBA	1
+
+Java	2
+
+Web Technology	1
+
+
